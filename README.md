@@ -1,7 +1,7 @@
 # SGA
+Реалізація алгоримту SGA
 
 ### Запуск програми:
-- на ОС Windows
-    
-- на ОС Linux
-    `bash run.sh`
+Створення віртуального середовища: `python3 -m venv venv`
+Встановлення залежностей: `pip3 install -r requirements.txt`
+Запуск програми: `python3 SGA.py`

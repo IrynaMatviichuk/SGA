@@ -16,7 +16,7 @@ import seaborn as sns
 #########################################################
 N=50                 # Population size
 Genome=4             # Genome length 
-generation_max= 10  # Maximum of generations - iterations
+generation_max= 50  # Maximum of generations - iterations
 
 #########################################################
 # VARIABLES ALGORITHM                                   #
@@ -24,7 +24,7 @@ generation_max= 10  # Maximum of generations - iterations
 popSize = N+1
 genomeLength  = Genome+1
 # init best chromosome
-the_best_chrom=0;         
+the_best_chrom=0;
 # fitness
 fitness = np.empty([popSize])
 # probability
@@ -49,6 +49,12 @@ generation=0;
 #########################################################
 def fitness_function(x):
     return np.fabs((x-5)/(2+np.sin(x)))
+
+
+def clear_output():
+    f = open("output.txt", "w")
+    f.write("")
+    f.close()
 
 #########################################################
 # POPULATION INITIALIZATION                             #
@@ -242,6 +248,7 @@ def plot_Output():
 #                                                       #
 #########################################################
 def Simple_GA():
+    clear_output()
     generation=0
     print(f"============== GENERATION: {generation} =========================== ")
     print()
@@ -264,4 +271,10 @@ def Simple_GA():
 print("SIMPLE GENETIC ALGORITHM")
 input("Press Enter to continue...")
 Simple_GA()
+best_chromosome = best_chrom[generation_max-1]
+print(f"\n\nThe index of the best chromosome: {best_chromosome}")
+arr = map(lambda x: str(x), chromosome[best_chromosome])
+chrom = "".join(list(arr)[1:])
+
+print(f"The best chromosome {chrom}")
 plot_Output()
